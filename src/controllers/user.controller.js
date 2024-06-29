@@ -1,7 +1,7 @@
-import myConnection from "../database/connection.js";
+const myConnection = require("../database/connection");
 //const db = myConnection;
 
-export const userController = {};
+const userController = {};
 
 
 
@@ -50,5 +50,8 @@ userController.deleteUser = (req, res) => {
 }
 
 
+module.exports = {
+    userController
+}
 
 //export default {userController};

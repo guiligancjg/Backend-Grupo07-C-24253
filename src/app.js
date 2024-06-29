@@ -1,7 +1,8 @@
-import express from 'express';
+const express = require('express');
+
 //const express = require('express');
 
-import userRoutes from './routes/users.routes.js';
+const userRoutes = require('./routes/users.routes');
 //const userRoutes =  require("./routes/users.routes");
 //import mysql from 'mysql';
 
