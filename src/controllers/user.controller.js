@@ -46,7 +46,17 @@ userController.updateUser = (req, res) => {
 
 
 userController.deleteUser = (req, res) => {
-    res.json({ message: "Se a eliminado al usuario"});
+
+    const {id} = req.params;
+
+    const sql = `DELETE FROM cocina_italiana WHERE id = ?`;
+
+    db.query(sql,[id], (err, result)=>{
+        if(err) {throw err}
+        res.json({message: "Se a elimino al usuario"});
+
+    });
+
 }
 
 
