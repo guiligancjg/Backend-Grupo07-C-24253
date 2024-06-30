@@ -39,8 +39,8 @@ const mysql = require("mysql2");
                 }
 
                 //Generamos la consulta para generar la tabla Usuario
-                const createTableUsuarioQuery = `
-                CREATE TABLE IF NOT EXISTS Usuario (
+                const createTableUsuariosQuery = `
+                CREATE TABLE IF NOT EXISTS Usuarios (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR(100) NOT NULL,
                     email VARCHAR(100) NOT NULL UNIQUE,
@@ -52,13 +52,13 @@ const mysql = require("mysql2");
 
 
                 //Pasamos la consulta
-                myConnection.query(createTableUsuarioQuery, (err, result)=> {
+                myConnection.query(createTableUsuariosQuery, (err, result)=> {
                     if(err) {
-                        console.log(`Error al crear la tabla usuario: ${err}`);
+                        console.log(`Error al crear la tabla usuarios: ${err}`);
                         return;
                     }
 
-                    console.log('Tabla Usuario: CREADA/EXISTENTE/GARANTIZADA');
+                    console.log('Tabla Usuarios: CREADA/EXISTENTE/GARANTIZADA');
                 });
 
 
@@ -69,7 +69,8 @@ const mysql = require("mysql2");
                     nombre VARCHAR(100) NOT NULL,
                     descripcion TEXT,
                     precio DECIMAL(10, 2) NOT NULL,
-                    categoria VARCHAR(50)
+                    categoria VARCHAR(50),
+                    imagen VARCHAR(255)
                 );`;
 
 
@@ -88,11 +89,11 @@ const mysql = require("mysql2");
                 const createTablePedidosQuery = `
                 CREATE TABLE Pedidos (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    usuario_id INT,
+                    usuarios_id INT,
                     fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     total DECIMAL(10, 2) NOT NULL,
                     estado VARCHAR(50) NOT NULL,
-                    FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
+                    FOREIGN KEY (usuarios_id) REFERENCES Usuarios(id)
                 );`;
 
 

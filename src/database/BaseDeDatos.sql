@@ -19,7 +19,8 @@ CREATE TABLE Menus (
     nombre VARCHAR(100) NOT NULL,
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
-    categoria VARCHAR(50)
+    categoria VARCHAR(50),
+    imagen VARCHAR(255)
 );
 
 CREATE TABLE Pedidos (
