@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 
 //const express = require('express');
 
 const userRoutes = require('./routes/users.routes');
 const menusRoutes = require('./routes/menus.routes');
+
+
 //const userRoutes =  require("./routes/users.routes");
 //import mysql from 'mysql';
 
@@ -25,7 +28,11 @@ app.use('/users', userRoutes);
 app.use('/menus', menusRoutes);
 //app.use('/', indexRoutes);
 
-
+app.use(cors({
+    origin: 'https://tpo-grupo-07-com-24253.vercel.app',
+    methods: ['GET', 'POST'], // Métodos HTTP permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
+  }));
 
 
 //6- Prefijo principal de las rutas y delegación de las sub-rutas
