@@ -3,6 +3,7 @@ const express = require('express');
 //const express = require('express');
 
 const userRoutes = require('./routes/users.routes');
+const menusRoutes = require('./routes/menus.routes');
 //const userRoutes =  require("./routes/users.routes");
 //import mysql from 'mysql';
 
@@ -21,6 +22,7 @@ const PORT = 3000;
 // en algo accesible por js
 app.use(express.json());
 app.use('/users', userRoutes);
+app.use('/menus', menusRoutes);
 //app.use('/', indexRoutes);
 
 

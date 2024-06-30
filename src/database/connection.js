@@ -13,7 +13,8 @@ const mysql = require("mysql2");
     });
 
    
-
+    module.exports = myConnection;
+    
     myConnection.connect((err)=> {
         if(err) {
             console.log(`Error de conexión con el servidor hasta aqui llega: ${err}` );
@@ -87,7 +88,7 @@ const mysql = require("mysql2");
 
                 //Generamos la consulta para generar la tabla Pedido
                 const createTablePedidosQuery = `
-                CREATE TABLE Pedidos (
+                CREATE TABLE IF NOT EXISTS Pedidos (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     usuarios_id INT,
                     fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -1,8 +1,8 @@
 const db = require("../database/connection.js");
 //const db = myConnection;
 
-const getAllUsers = (req, res) => {
-    const sql = 'SELECT * FROM cocina_italiana.Usuarios;';
+const getAllMenus = (req, res) => {
+    const sql = 'SELECT * FROM cocina_italiana.Menus;';
 
     db.query(sql, (err, result)=> {
         if(err) {throw err}
@@ -11,17 +11,6 @@ const getAllUsers = (req, res) => {
     });
 
 }
-
-
 module.exports = {
-    getAllUsers
-
-}
-
-/*
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser
-
-*/
+    getAllMenus
+};
