@@ -7,7 +7,6 @@ const mysql = require("mysql2");
         user: 'root',
         password: 'IEVKbQhjhSijRksOWUdrpPWHVkqccKRr',
         port: 17662,
-        database: 'cocina_italiana',
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0
@@ -17,19 +16,19 @@ const mysql = require("mysql2");
 
     myConnection.connect((err)=> {
         if(err) {
-            console.log(`Error de conexión con el servidor: ${err}` );
+            console.log(`Error de conexión con el servidor hasta aqui llega: ${err}` );
             return;
         }
 
-        console.log(`Estado de conexión: CONECTADA`);
-        const sqlCreatedb = 'CREATE DATABASE IF NOT EXISTS cocina_italiana';
+        
+        const sqlCreatedb = 'CREATE DATABASE IF NOT EXISTS cocina_italiana;';
 
         myConnection.query(sqlCreatedb, (err, result) => {
             if(err) {
                 console.log(`Error de conexión con el servidor: ${err}`);
                 return;
             }
-
+            console.log(`Estado de conexión: CONECTADA`);
             console.log(`Base de datos: CREADA/EXISTENTE/GARANTIZADA`);
 
             //CREACION DE TABLAS
@@ -86,24 +85,25 @@ const mysql = require("mysql2");
 
 
                 //Generamos la consulta para generar la tabla Pedido
-                const createTablePedidoQuery = `
-                CREATE TABLE IF NOT EXISTS Menus (
+                const createTablePedidosQuery = `
+                CREATE TABLE Pedidos (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    nombre VARCHAR(100) NOT NULL,
-                    descripcion TEXT,
-                    precio DECIMAL(10, 2) NOT NULL,
-                    categoria VARCHAR(50)
+                    usuario_id INT,
+                    fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    total DECIMAL(10, 2) NOT NULL,
+                    estado VARCHAR(50) NOT NULL,
+                    FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
                 );`;
 
 
                 //Pasamos la consulta
-                myConnection.query(createTablePedidoQuery, (err, result)=> {
+                myConnection.query(createTablePedidosQuery, (err, result)=> {
                     if(err) {
-                        console.log(`Error al crear la tabla pedido: ${err}`);
+                        console.log(`Error al crear la tabla pedidos: ${err}`);
                         return;
                     }
 
-                    console.log('Tabla Pedido: CREADA/EXISTENTE/GARANTIZADA');
+                    console.log('Tabla Pedidos: CREADA/EXISTENTE/GARANTIZADA');
                 });
 
 
