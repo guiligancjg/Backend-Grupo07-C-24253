@@ -28,7 +28,11 @@ app.use('/users', userRoutes);
 app.use('/menus', menusRoutes);
 //app.use('/', indexRoutes);
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'], // Métodos HTTP permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
+  }));
 
 
 //6- Prefijo principal de las rutas y delegación de las sub-rutas
