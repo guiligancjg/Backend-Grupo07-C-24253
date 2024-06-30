@@ -6,7 +6,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/users.routes');
 const menusRoutes = require('./routes/menus.routes');
 
-
+const listaBlanca = ['http://localhost:3000','https://backend-grupo07-c-24253.onrender.com','https://tpo-grupo-07-com-24253.vercel.app'];
 //const userRoutes =  require("./routes/users.routes");
 //import mysql from 'mysql';
 
@@ -29,9 +29,7 @@ app.use('/menus', menusRoutes);
 //app.use('/', indexRoutes);
 
 app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'], // Métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
+    origin: listaBlanca
   }));
 
 
