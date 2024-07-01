@@ -1,6 +1,5 @@
 import express from "express";
 import path from "path";
-import cors from 'cors';
 import { fileURLToPath } from 'url';
 import userRoutes from "./routes/users.routes.js";
 import routesMenu from "./routes/menus.routes.js";
@@ -22,11 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/menus', routesMenu);
-app.use(cors({
-    origin: 'http://localhost:3000', // O cualquier origen que necesites permitir
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos que necesitas permitir
-    allowedHeaders: ['Content-Type', 'Authorization'] // Cabeceras que necesitas permitir
-}));
+
 //app.use('/', indexRoutes);
 
 
