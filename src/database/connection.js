@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+import mysql from "mysql2";
 
 
 //Configuración de la conexion de la base de datos en la pagina https://railway.app/
@@ -13,7 +13,7 @@ const mysql = require("mysql2");
     });
 
    
-    module.exports = myConnection;
+    
     
     myConnection.connect((err)=> {
         if(err) {
@@ -142,5 +142,6 @@ const mysql = require("mysql2");
     });
 
 
-module.exports = myConnection;
+export default myConnection;
+
 

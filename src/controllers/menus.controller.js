@@ -1,7 +1,9 @@
-const db = require("../database/connection.js");
+import db from "../database/connection.js";
 //const db = myConnection;
 
-const getAllMenus = (req, res) => {
+const menuController = {};
+
+menuController.getAllMenus = (req, res) => {
     const sql = 'SELECT * FROM cocina_italiana.Menus;';
 
     db.query(sql, (err, result)=> {
@@ -11,6 +13,5 @@ const getAllMenus = (req, res) => {
     });
 
 }
-module.exports = {
-    getAllMenus
-};
+
+export default menuController;

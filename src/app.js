@@ -1,18 +1,15 @@
-const express = require('express');
-const path = require('path');
+import express from "express";
+import path from "path";
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+import userRoutes from "./routes/users.routes.js";
+import routesMenu from "./routes/menus.routes.js";
 
-//const express = require('express');
 
-const userRoutes = require('./routes/users.routes');
-const menusRoutes = require('./routes/menus.routes');
 
-//const userRoutes =  require("./routes/users.routes");
-//import mysql from 'mysql';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-//import indexRoutes from './routes/index.routes.js';
-
-//import myConnection from 'express-myconnection';
-//const indexRoutes = require("./routes/index.routes");
 
 //2- Instanciamos express
 const app = express();
@@ -24,7 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // en algo accesible por js
 app.use(express.json());
 app.use('/users', userRoutes);
-app.use('/menus', menusRoutes);
+app.use('/menus', routesMenu);
+app.use(cors({
+    origin: 'http://localhost:3000', // O cualquier origen que necesites permitir
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos que necesitas permitir
+    allowedHeaders: ['Content-Type', 'Authorization'] // Cabeceras que necesitas permitir
+}));
 //app.use('/', indexRoutes);
 
 

@@ -1,7 +1,9 @@
-const db = require("../database/connection.js");
+import db from "../database/connection.js";
 //const db = myConnection;
 
-const getAllUsers = (req, res) => {
+const userController = {};
+
+userController.getAllUsers = (req, res) => {
     const sql = 'SELECT * FROM cocina_italiana.Usuarios;';
 
     db.query(sql, (err, result)=> {
@@ -12,11 +14,8 @@ const getAllUsers = (req, res) => {
 
 }
 
+export default userController;
 
-module.exports = {
-    getAllUsers
-
-}
 
 /*
     getUserById,

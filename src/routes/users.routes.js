@@ -1,11 +1,12 @@
-const express = require("express");
-const {getAllUsers} = require('../controllers/user.controller');
+import {Router} from "express";
+import userController from "../controllers/user.controller.js";
 
 
-const routes = express.Router();
+
+const routesMenu = Router();
 
 //Rutas get
-routes.get("/", getAllUsers);
+routesMenu.get("/", userController.getAllUsers);
 //routes.get("/:userId", getUserById);
 
 //Rutas post
@@ -18,4 +19,5 @@ routes.get("/", getAllUsers);
 //routes.delete('/:userId', deleteUser);
 
 
-module.exports = routes;
+export default routesMenu;
+
