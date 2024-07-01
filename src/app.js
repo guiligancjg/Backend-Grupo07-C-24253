@@ -1,12 +1,11 @@
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
 
 //const express = require('express');
 
 const userRoutes = require('./routes/users.routes');
 const menusRoutes = require('./routes/menus.routes');
 
-const listaBlanca = ['http://localhost:3000','https://backend-grupo07-c-24253.onrender.com','https://tpo-grupo-07-com-24253.vercel.app'];
 //const userRoutes =  require("./routes/users.routes");
 //import mysql from 'mysql';
 
@@ -20,7 +19,7 @@ const app = express();
 
 //4- Declaramos el puerto
 const PORT = 3000; 
-
+app.use(express.static(path.join(__dirname, 'public')));
 //5- Uso del middleware .json que convierte el cuerpo de solicitud
 // en algo accesible por js
 app.use(express.json());
@@ -28,9 +27,7 @@ app.use('/users', userRoutes);
 app.use('/menus', menusRoutes);
 //app.use('/', indexRoutes);
 
-app.use(cors({
-    origin: listaBlanca
-  }));
+
 
 
 //6- Prefijo principal de las rutas y delegación de las sub-rutas
