@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:3000/menus/')
+    fetch('http://localhost:10000/menus/')
         .then(response => response.json())
         .then(menus => {
             const container = document.querySelector('.pedidosUsuario');
