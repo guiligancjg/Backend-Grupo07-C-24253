@@ -2,7 +2,7 @@ import db from "../database/connection.js";
 //const db = myConnection;
 
 
-export const getAllMenus = (req, res) => {
+const getAllMenus = (req, res) => {
     const sql = 'SELECT * FROM cocina_italiana.Menus;';
 
     db.query(sql, (err, result)=> {
@@ -14,7 +14,7 @@ export const getAllMenus = (req, res) => {
 }
 
 
-export const getMenuById = (req, res) => {
+const getMenuById = (req, res) => {
     const {id} = req.params;
     const sql = 'SELECT * FROM cocina_italiana.Menus WHERE id = ? ;';
 
@@ -27,3 +27,4 @@ export const getMenuById = (req, res) => {
 }
 
 
+export default getAllMenus

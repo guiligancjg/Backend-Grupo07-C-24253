@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {getAllMenus, getMenuById} from "../controllers/menus.controller.js";
+import getAllMenus from "../controllers/menus.controller.js";
 
 
 
@@ -7,7 +7,7 @@ const routesMenu = Router();
 
 //Rutas get
 routesMenu.get("/", getAllMenus);
-routesMenu.get("/:id", getMenuById);
+//routesMenu.get("/:id", getMenuById);
 
 //Rutas post
 //routes.post("/", userController.createUser);
