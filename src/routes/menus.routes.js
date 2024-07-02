@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {getAllMenus, getMenuById} from "../controllers/menus.controller.js";
+import {getAllMenus, getCreateMenu, getMenuById, getUpdateMenu} from "../controllers/menus.controller.js";
 
 
 
@@ -10,13 +10,13 @@ routesMenu.get("/", getAllMenus);
 routesMenu.get("/:id", getMenuById);
 
 //Rutas post
-//routes.post("/", userController.createUser);
+routesMenu.post("/", getCreateMenu);
 
 //Rutas actualizacion put
-//routes.put("/:userId", userController.updateUser);
+routesMenu.put("/:id", getUpdateMenu);
 
 //Rutas eliminacion delete
-//routes.delete('/:userId', userController.deleteUser);
+routesMenu.delete("/:id", getUpdateMenu);
 
 export default routesMenu;
 
