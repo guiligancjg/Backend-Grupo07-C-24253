@@ -17,6 +17,7 @@ app.use(express.json());
 app.use('/users', routesUser);
 app.use('/menus', routesMenu);
 app.use(cors());
+app.use(express.urlencoded({ extended: true}));
 
 //Iniciamos el servidor
 app.listen(PORT, () => {
