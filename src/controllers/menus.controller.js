@@ -48,7 +48,7 @@ export const getCreateMenu = (req, res) => {
             res.status(200).json(result);
         });
     } catch (error) {
-        return res.json({ mensaje: "Error al ingresar el menu"});
+        return res.status(502).json({ mensaje: "Error al ingresar el menu"});
     }
 }
 
