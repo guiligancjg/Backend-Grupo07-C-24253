@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import routesUser from "./routes/users.routes.js";
 import routesMenu from "./routes/menus.routes.js";
-
+import cors from 'cors';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use('/users', routesUser);
 app.use('/menus', routesMenu);
-
+app.use(cors());
 
 //Iniciamos el servidor
 app.listen(port, () => {
