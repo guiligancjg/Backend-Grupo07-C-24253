@@ -1,12 +1,12 @@
 import {Router} from "express";
-import menuController from "../controllers/menus.controller.js";
+import {getAllMenus} from "../controllers/menus.controller.js";
 
 
 
-const routes = Router();
+const routesMenu = Router();
 
 //Rutas get
-routes.get("/", menuController.getAllMenus);
+routesMenu.get("/", getAllMenus);
 //routes.get("/:userId", userController.getUserById);
 
 //Rutas post
@@ -18,5 +18,5 @@ routes.get("/", menuController.getAllMenus);
 //Rutas eliminacion delete
 //routes.delete('/:userId', userController.deleteUser);
 
-export default routes;
+export default routesMenu;
 

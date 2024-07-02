@@ -3,10 +3,10 @@ import userController from "../controllers/user.controller.js";
 
 
 
-const routesMenu = Router();
+const routesUser = Router();
 
 //Rutas get
-routesMenu.get("/", userController.getAllUsers);
+routesUser.get("/", userController.getAllUsers);
 //routes.get("/:userId", getUserById);
 
 //Rutas post
@@ -19,5 +19,5 @@ routesMenu.get("/", userController.getAllUsers);
 //routes.delete('/:userId', deleteUser);
 
 
-export default routesMenu;
+export default routesUser;
 
