@@ -45,10 +45,10 @@ export const getCreateMenu = (req, res) => {
         db.query(sql,[nombre, descripcion, precio, categoria, imagen], (err, result)=> {
             if(err) {throw err}
     
-            res.status(200).json(result);
+            res.status(200).json("SE INGRESO EL MENU EXITOSAMENTE");
         });
     } catch (error) {
-        return res.status(502).json({ mensaje: "Error al ingresar el menu"});
+        return res.json({ mensaje: "Error al ingresar el menu"});
     }
 }
 
