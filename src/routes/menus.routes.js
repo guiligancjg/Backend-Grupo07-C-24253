@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {getAllMenus, getCreateMenu, getMenuById, getUpdateMenu} from "../controllers/menus.controller.js";
+import {getAllMenus, getCreateMenu, getMenuById, getUpdateMenu, getEliminarMenu} from "../controllers/menus.controller.js";
 
 
 
@@ -16,7 +16,7 @@ routesMenu.post("/", getCreateMenu);
 routesMenu.put("/:id", getUpdateMenu);
 
 //Rutas eliminacion delete
-routesMenu.delete("/:id", getUpdateMenu);
+routesMenu.delete("/:id", getEliminarMenu);
 
 export default routesMenu;
 

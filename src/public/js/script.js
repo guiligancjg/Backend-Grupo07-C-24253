@@ -96,7 +96,7 @@ function contacFormularioDelivery() {
 contacFormularioDelivery();
 
 
-
+/*
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -147,5 +147,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+*/
 
+
+document.addEventListener('DOMContentLoaded', () => { 
+    const authToken = JSON.parse(sessionStorage.getItem('authData'));
+    if (authToken) {
+            const logoutSectionHTML = ` <div class="header__login">
+            <button id="logout" type="button" class="btn btn-secondary btn-lg">Cerrar Sesión</button>
+        </div>`;
+        const targetElement = document.getElementById('targetElementId');
+        //console.log(authToken.auth);
+    
+        if(authToken.auth){
+            targetElement.innerHTML = logoutSectionHTML;
+           
+            } 
+    }else {
+        const loginSectionHTML = `
+        <div class='header__login'>
+            <a href='../login.html'>
+                <div class='boton-login' title='Iniciar Sesión'>
+                    <svg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-user' width='35' height='35' viewBox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                        <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                        <path d='M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0' />
+                        <path d='M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2' />
+                    </svg>
+                    <span class='boton-login__texto'>Iniciar Sesión</span>
+                </div>
+            </a>
+            <a href='../register.html'>
+                <div class='boton-registrate'>
+                    <span>Regístrate</span>
+                </div>
+            </a>
+        </div>
+    `;
+        const targetElement = document.getElementById('targetElementId');
+        targetElement.innerHTML = loginSectionHTML;
+    }
+});
 

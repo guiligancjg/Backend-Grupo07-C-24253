@@ -2007,3 +2007,20 @@ body {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
+
+
+
+/*******************************************************/
+/* FORMULARIO LOGIN Y REGISTER*/
+.formulario_login_register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10rem;
+    padding-bottom: 15rem;
+    
+    
+}
+
+
+
