@@ -2006,6 +2006,7 @@ body {
     gap: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    font-size: 1.3rem;
 }
 
 
@@ -2022,5 +2023,11 @@ body {
     
 }
 
+
+.usuarioYpedidos {
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 3rem;
+}
 
 

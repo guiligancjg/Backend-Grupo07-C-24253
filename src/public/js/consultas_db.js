@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pedidos.forEach(pedido => {
             const card = document.createElement("div");
             card.classList.add("card", "mb-4");
-            card.style.width = "18rem";
+            card.style.width = "24rem";
 
             const img = document.createElement("img");
             img.src =
@@ -86,12 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardLink1 = document.createElement("a");
             cardLink1.href = "#";
             cardLink1.classList.add("card-link");
-            cardLink1.textContent = "Card link";
+            cardLink1.textContent = "Reordenar";
 
             const cardLink2 = document.createElement("a");
             cardLink2.href = "#";
             cardLink2.classList.add("card-link");
-            cardLink2.textContent = "Another link";
+            cardLink2.textContent = "Detalles";
 
             cardBodyLinks.appendChild(cardLink1);
             cardBodyLinks.appendChild(cardLink2);
