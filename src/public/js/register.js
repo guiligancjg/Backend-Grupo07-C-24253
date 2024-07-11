@@ -1,6 +1,6 @@
 //const PORT = 3000;
 //const SERVER_URL = `http://localhost:${PORT}`;
-const SERVER_URL = `https://backend-grupo07-c-24253.onrender.com/`;
+const SERVER_URL = `https://backend-grupo07-c-24253.onrender.com`;
 
 //REGISTRAR USUARIO
 
